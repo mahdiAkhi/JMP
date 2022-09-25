@@ -8,9 +8,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
+import java.util.Optional;
 
 public class App {
 
@@ -20,7 +19,7 @@ public class App {
          * Create a Directory obj for OS walk
          * @arg path: path to project root
          */
-        Directory dir = new Directory("E:\\Papers\\Thesis\\code\\repo scrapper\\repo\\gson-master");
+        Directory dir = new Directory("E:\\Papers\\Thesis\\code\\repo scrapper\\repo\\dubbo");
 //        a list of java files in project
         List<Path> javaFiles = dir.getJavaFiles();
 
@@ -75,25 +74,25 @@ public class App {
             fileClass += "\"methods\":[";
 
 //          an hashtable to store method objects
-            List<Hashtable> methods = new ArrayList<Hashtable>();
-            methods = extractor.extractMethods();
+            var methods = extractor.extractMethods();
 
             if(methods.size()<1){
+                fileClass+="]";
+            }else{
+            // convert hashtable to json object
+            JSONObject converter = new JSONObject(methods);
+            fileClass += converter + ",";
+            }
 
-            }
-            for (Hashtable method : methods) {
-                //     convert hashtable to json object
-                JSONObject converter = new JSONObject(method);
-                fileClass += converter + ",";
-            }
+
             fileClass = fileClass.substring(0, fileClass.length() - 1);
-            fileClass += "]},";
+            fileClass += "]},\n";
 
         }
         fileClass = fileClass.substring(0, fileClass.length() - 1);
 
         project +=fileClass+"\n]";
-        File jsonoFile = new File("E:\\Papers\\Thesis\\code\\repo scrapper\\repo-scrapper\\src\\main\\java\\javaParser\\jsons\\gson.json");
+        File jsonoFile = new File("E:\\Papers\\Thesis\\code\\repo scrapper\\repo-scrapper\\src\\main\\java\\javaParser\\jsons\\dubbo1.json");
         jsonoFile.createNewFile();
 
         FileWriter writer = new FileWriter(jsonoFile);
@@ -102,8 +101,14 @@ public class App {
     }
 
     private static String getPackageName(CompilationUnit cu) {
-        String packageName = cu.getPackageDeclaration().get().toString();
-        return packageName.split(" ")[1].replace(";", "").trim();
+        String packageName="";
+        if(!cu.getPackageDeclaration().equals(Optional.empty())){
+            packageName = cu.getPackageDeclaration().get().toString();
+            packageName =packageName.split(" ")[1].replace(";", "").trim();
+        }else{
+            packageName = getClassName(cu);
+        }
+        return packageName;
     }
 
     private static String getClassName(CompilationUnit cu) {

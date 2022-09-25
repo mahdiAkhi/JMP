@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54091dda-9df6-4113-8cba-c98a4bee13aa" name="Default Changelist" comment="" />
+    <list default="true" id="54091dda-9df6-4113-8cba-c98a4bee13aa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/javaParser/Method.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-parser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-parser.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javaParser/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javaParser/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javaParser/Directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javaParser/Directory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javaParser/Extractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javaParser/Extractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/javaParser/jsons/gson.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/javaParser/jsons/gson.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javaParser/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javaParser/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javaParser/Directory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javaParser/Directory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/javaParser/Extractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/javaParser/Extractor.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +30,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -26,6 +42,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="20g5Gtrf52rNCSL9P5xNqT164Cz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,13 +50,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/gson-2.8.2.jar" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.40163934" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RunManager" selected="Application.App">
@@ -82,6 +101,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
@@ -116,12 +146,28 @@
       <workItem from="1638020782936" duration="1444000" />
       <workItem from="1638025597672" duration="12107000" />
       <workItem from="1638778277997" duration="1839000" />
-      <workItem from="1638786338606" duration="2291000" />
+      <workItem from="1638786338606" duration="3294000" />
+      <workItem from="1653506377665" duration="398000" />
+      <workItem from="1657963566806" duration="1949000" />
+      <workItem from="1657969060082" duration="7953000" />
+      <workItem from="1664132268401" duration="9721000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -130,6 +176,16 @@
           <properties class="java.util.NoSuchElementException" package="java.util" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/javaParser/App.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/javaParser/Extractor.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -41,7 +41,7 @@ public class Directory {
 
         List<Path> javaFiles = new Vector<Path>();
         for (Path path : this.files) {
-            if (path.toString().endsWith(".java")) {
+            if (path.toString().endsWith(".java") && path.toString().toLowerCase().indexOf("\\test\\")<0) {
                 javaFiles.add(path);
             }
         }

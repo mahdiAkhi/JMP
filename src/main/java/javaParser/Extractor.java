@@ -2,8 +2,9 @@ package javaParser;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.google.gson.Gson;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -35,7 +36,7 @@ public class Extractor {
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
-                text += scanner.nextLine() + "\n";
+                text += scanner.nextLine().replaceAll("\n", "") + "\n";
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -52,28 +53,34 @@ public class Extractor {
         return this.code;
     }
 
-    public List<Hashtable> extractMethods() {
+    public Hashtable<String, JSONObject> extractMethods() {
 
         if (this.code == null)
             this.readFile();
 
-        Hashtable<String, String> method = new Hashtable<>();
-        List<Hashtable> methods = new ArrayList<Hashtable>();
+        Hashtable<String, JSONObject> methods = new Hashtable<>();
 
 
-        cu.findAll(MethodDeclaration.class).forEach(n -> {
+        var methodList = cu.findAll(MethodDeclaration.class);
+        for (int i = 0; i < methodList.size(); i++) {
 
-            method.put("Signature", n.getDeclarationAsString());
-            String comment = (n.hasJavaDocComment()) ? n.getJavadoc().get().toString() : "";
-            method.put("Comment", comment);
-            String body="";
-            if(!n.getBody().equals(Optional.empty())){
-                body = n.getBody().get().toString();
+            var signature = methodList.get(i).getDeclarationAsString();
+            var comment = (methodList.get(i).hasJavaDocComment()) ? methodList.get(i).getJavadoc().get().toString() : "";
+
+            String body = "";
+            if (!methodList.get(i).getBody().equals(Optional.empty())) {
+                body = methodList.get(i).getBody().get().toString();
             }
-            method.put("Body : ", body);
-            method.put("Method:", n.toString());
-            methods.add(method);
-        });
+            var method = methodList.get(i).toString();
+            var a = new Method(
+                    signature,
+                    comment,
+                    body,
+                    method
+            );
+            Gson gson = new Gson();
+            methods.put(i + "", new JSONObject(gson.toJson(a)) );
+        }
         return methods;
     }
 }
